@@ -85,7 +85,7 @@
     },
     {
       "principalType": "ROLE",
-      "principalId": "dtr",
+      "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "find"
     }
