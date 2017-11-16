@@ -1,0 +1,101 @@
+{
+  "name": "Company",
+  "base": "PersistedModel",
+  "strict":true,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name":{
+      "type": "string",
+      "required": true
+    },
+    "address":{
+      "type": "Address",
+      "required": false
+    },
+    "email":{
+      "type": "string",
+      "required": false
+    },
+    "telephone":{
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "batches": {
+      "type": "hasMany",
+      "model": "Batch",
+      "foreignKey": "companyId"
+    },
+    "machines": {
+      "type": "hasMany",
+      "model": "Machine",
+      "foreignKey": "companyId"
+    },
+    "users": {
+      "type": "hasMany",
+      "model": "Customer",
+      "foreignKey": "companyId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__get__batches"
+    },    
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__get__machines"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__get__users"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "vip",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "su",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "su",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "su",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    }
+  ],
+  "methods": {}
+}

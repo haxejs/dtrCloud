@@ -1,0 +1,94 @@
+{
+  "name": "Batch",
+  "base": "PersistedModel",
+  "strict":false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "properties": {
+    "updatedAt":{
+      "type": "Date",
+      "required": false
+    },
+    "companyName":{
+      "type": "string",
+      "required": false
+    },
+    "dtrSenderName":{
+      "type": "string",
+      "required": false
+    },
+
+    "BatchName":{
+      "type": "string",
+      "required": true
+    },
+    "MachineNumber":{
+      "type": "number",
+      "required": true
+    },
+    "MachineName":{
+      "type": "string",
+      "required": true
+    },
+    "Loading":{
+      "type": "number",
+      "required": false
+    },
+    "Water_Vol1_Total":{
+      "type": "string",
+      "required": false
+    },
+    "Water_Vol2_Total":{
+      "type": "string",
+      "required": false
+    },
+    "Water_Vol3_Total":{
+      "type": "string",
+      "required": false
+    },
+    "Water_Vol4_Total":{
+      "type": "string",
+      "required": false
+    },
+    "Steam_Vol_Total":{
+      "type": "string",
+      "required": false
+    },
+    "Power_Total":{
+      "type": "string",
+      "required": false
+    }
+  },
+  "mixins": {
+    "FireLoop": true
+  },
+  "validations": [],
+  "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": "companyId"
+    },
+    "dtrSender": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": "dtrSenderId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "dtr",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,138 @@
+{
+  "name": "Machine",
+  "base": "PersistedModel",
+  "strict":false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "properties": {
+    "updatedAt":{
+      "type": "Date",
+      "required": false
+    },
+    "companyName":{
+      "type": "string",
+      "required": false
+    },
+    "dtrSenderName":{
+      "type": "string",
+      "required": false
+    },
+        
+    "MachineNumber":{"type": "number","required": true},
+    "OnLine":{"type": "number","required": true},
+    "MachineName":{"type": "string","required": true},
+    "MachineState":{"type": "string","required": false},
+    "MachineMode":{"type": "string","required": false},
+    "MachineCallState":{"type": "string","required": false},
+    "BatchName":{"type": "string","required": false},
+    "DyeProgName":{"type": "string","required": false},
+    "Sub_DyeProgName":{"type": "string","required": false},
+    "DyeProgNumber":{"type": "number","required": false},
+    "DyeProgStep":{"type": "number","required": false},
+
+    "Main_Vol":{"type": "number","required": false},
+    "TankB_Vol":{"type": "number","required": false},
+    "TankC_Vol":{"type": "number","required": false},
+    "Main_Alarm":{"type": "number","required": false},
+
+    "Loading":{"type": "number","required": false},
+    "Ratio_1":{"type": "string","required": false},
+    "Ratio_2":{"type": "string","required": false},
+
+    "MachineIns1_Text":{"type": "string","required": false},
+    "MachineIns1_Value":{"type": "string","required": false},
+    "MachineIns2_Text":{"type": "string","required": false},
+    "MachineIns2_Value":{"type": "string","required": false},
+    "MachineIns3_Text":{"type": "string","required": false},
+    "MachineIns3_Value":{"type": "string","required": false},
+    "MachineIns4_Text":{"type": "string","required": false},
+    "MachineIns4_Value":{"type": "string","required": false},
+    "MachineIns5_Text":{"type": "string","required": false},
+    "MachineIns5_Value":{"type": "string","required": false},
+    "MachineIns6_Text":{"type": "string","required": false},
+    "MachineIns6_Value":{"type": "string","required": false},
+
+    "MachineMainTemp":{"type": "string","required": false},
+    "MachineTemp2":{"type": "string","required": false},
+    "MachineTemp3":{"type": "string","required": false},
+    "MachineTemp4":{"type": "string","required": false},
+
+    "MachineAIn1":{"type": "string","required": false},
+    "MachineAIn2":{"type": "string","required": false},
+    "MachineAIn3":{"type": "string","required": false},
+    "MachineAIn4":{"type": "string","required": false},
+    "MachineAIn5":{"type": "string","required": false},
+    "MachineAIn6":{"type": "string","required": false},
+    "MachineAIn7":{"type": "string","required": false},
+    "MachineAIn8":{"type": "string","required": false},
+
+    "MachineAOut1":{"type": "string","required": false},
+    "MachineAOut2":{"type": "string","required": false},
+    "MachineAOut3":{"type": "string","required": false},
+    "MachineAOut4":{"type": "string","required": false},
+    "MachineAOut5":{"type": "string","required": false},
+    "MachineAOut6":{"type": "string","required": false},
+    "MachineAOut7":{"type": "string","required": false},
+    "MachineAOut8":{"type": "string","required": false},
+
+    "Ch_1_CycleTime":{"type": "number","required": false},
+    "Ch_2_CycleTime":{"type": "number","required": false},
+    "Ch_3_CycleTime":{"type": "number","required": false},
+    "Ch_4_CycleTime":{"type": "number","required": false},
+    "Ch_5_CycleTime":{"type": "number","required": false},
+    "Ch_6_CycleTime":{"type": "number","required": false},
+    "Ch_7_CycleTime":{"type": "number","required": false},
+    "Ch_8_CycleTime":{"type": "number","required": false},
+
+    "Water_Vol1_Total":{"type": "string","required": false},
+    "Water_Vol2_Total":{"type": "string","required": false},
+    "Water_Vol3_Total":{"type": "string","required": false},
+    "Water_Vol4_Total":{"type": "string","required": false},
+    "Steam_Vol_Total":{"type": "string","required": false},
+    "Power_Total":{"type": "string","required": false},
+
+    "Str_Space_1":{"type": "string","required": false},
+    "Str_Space_2":{"type": "string","required": false},
+    "Str_Space_3":{"type": "string","required": false},
+    "Str_Space_4":{"type": "string","required": false},
+    "Str_Space_5":{"type": "string","required": false},
+
+    "Integer_Space_1":{"type": "number","required": false},
+    "Integer_Space_2":{"type": "number","required": false},
+    "Integer_Space_3":{"type": "number","required": false},
+    "Integer_Space_4":{"type": "number","required": false},
+    "Integer_Space_5":{"type": "number","required": false}
+  },
+  "mixins": {
+    "FireLoop": true
+  },
+  "validations": [],
+  "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": "companyId"
+    },
+    "dtrSender": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": "dtrSenderId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "dtr",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": {}
+}

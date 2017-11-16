@@ -1,0 +1,17 @@
+{"email": "dtr@ugen.cn","password":"123456"}
+
+{
+  "MachineNumber": 10,
+  "MachineName": "M10",
+  "BatchName": "12345678a",
+  "DyeProgName": "x1",
+  "DyeProgNumber": 0,
+  "DyeProgStep": 0,
+  "Loading": 32,
+  "Water_Vol1_Total": "111",
+  "Water_Vol2_Total": "0",
+  "Water_Vol3_Total": "0",
+  "Water_Vol4_Total": "0",
+  "Steam_Vol_Total": "11",
+  "Power_Total": "23"
+}

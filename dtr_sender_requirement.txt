@@ -1,0 +1,15 @@
+具体需求是，
+1）可配置口令信息，如email与password; 数据库连接信息，表名等也需要配置
+2）用上面口令信息，调用api/Customers/login，获得有存活期的token与id（userId），在失效前，重新login
+3）数据库有新记录或记录更新时，post数据到api/Events
+4）定时心跳（每5秒），调用api/Customers/{id}/heartBeat
+5) 最好（可先不做）把错误日志写入到https://papertrailapp.com与本地系统中，方便我们以后监控
+
+
+陈总，您好，
+
+关于MS SQL SERVER数据导出，有相应的工具，请参看如下资料：
+
+https://www.mssqltips.com/sqlservertutorial/202/simple-way-to-export-data-from-sql-server/
+https://technet.microsoft.com/en-us/library/ms141209(v=sql.110).aspx
+

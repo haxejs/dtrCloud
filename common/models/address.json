@@ -1,0 +1,24 @@
+{
+  "name": "Address",
+  "base": "Model",
+  "strict":true,
+  "idInjection": false,
+  "properties": {
+    "province": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

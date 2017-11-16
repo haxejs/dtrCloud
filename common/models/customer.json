@@ -1,0 +1,72 @@
+{
+  "name": "Customer",
+  "base": "User",
+  "idInjection": true,
+  "strict":true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fullName":{
+      "type": "string",
+      "required": false
+    },
+    "roleName":{
+      "type": "string",
+      "required": true
+    },
+    "lastHeartBeat":{
+      "type": "Date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "company": {
+      "type": "belongsTo",
+      "model": "Company",
+      "foreignKey": "companyId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "heartBeat"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__company"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "su",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "su",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    }
+  ],
+  "methods": {
+  }
+}
+

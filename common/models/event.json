@@ -1,0 +1,35 @@
+{
+  "name": "Event",
+  "base": "Machine",
+  "strict":false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "properties": {
+  },
+  "mixins": {
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "dtr",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "su",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": {}
+}
