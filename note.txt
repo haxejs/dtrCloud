@@ -4,6 +4,8 @@
   "MachineNumber": 10,
   "MachineName": "M10",
   "BatchName": "12345678a",
+  "MachineMainTemp":"56",
+  "OnLine":1,
   "DyeProgName": "x1",
   "DyeProgNumber": 0,
   "DyeProgStep": 0,

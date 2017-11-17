@@ -83,6 +83,7 @@ export = function(Event:any) {
 							Water_Vol4_Total:ctx.args.data.Water_Vol4_Total,
 							Steam_Vol_Total:ctx.args.data.Steam_Vol_Total,
 							Power_Total:ctx.args.data.Power_Total,
+							completed:0,
 							updatedAt:new Date()
 						},
 						next

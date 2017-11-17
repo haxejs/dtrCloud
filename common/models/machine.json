@@ -19,6 +19,10 @@
       "type": "string",
       "required": false
     },
+    "tempArray":{
+      "type": ["object"],
+      "required": false
+    },
         
     "MachineNumber":{"type": "number","required": true},
     "OnLine":{"type": "number","required": true},

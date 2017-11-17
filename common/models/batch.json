@@ -11,6 +11,10 @@
       "type": "Date",
       "required": false
     },
+    "completed":{
+      "type": "number",
+      "required": false
+    },
     "companyName":{
       "type": "string",
       "required": false
