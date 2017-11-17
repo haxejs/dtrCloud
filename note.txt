@@ -3,6 +3,7 @@
 {
   "MachineNumber": 10,
   "MachineName": "M10",
+  "MachineState": "1",
   "BatchName": "12345678a",
   "MachineMainTemp":"56",
   "OnLine":1,
