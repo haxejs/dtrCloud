@@ -7,7 +7,7 @@ export = function(Machine:any) {
 			let temp = ctx.data.MachineMainTemp?Number(ctx.data.MachineMainTemp):0;
 			if (currentInstance){
 				//when batch is switched, then the batch is completed
-				if (currentInstance.BatchName && currentInstance.BatchName != ctx.data.BatchName){
+				if (currentInstance.BatchName && currentInstance.BatchName.length>0 && currentInstance.BatchName != ctx.data.BatchName){
 					app.models.Batch.upsertWithWhere(
 						{
 							dtrSenderId:currentInstance.dtrSenderId,

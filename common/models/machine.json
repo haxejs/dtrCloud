@@ -25,8 +25,8 @@
     },
         
     "MachineNumber":{"type": "number","required": true},
-    "OnLine":{"type": "number","required": true},
-    "MachineName":{"type": "string","required": true},
+    "OnLine":{"type": "number","required": false},
+    "MachineName":{"type": "string","required": false},
     "MachineState":{"type": "string","required": false},
     "MachineMode":{"type": "string","required": false},
     "MachineCallState":{"type": "string","required": false},

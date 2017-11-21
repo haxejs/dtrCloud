@@ -34,7 +34,7 @@
     },
     "MachineName":{
       "type": "string",
-      "required": true
+      "required": false
     },
     "Loading":{
       "type": "number",

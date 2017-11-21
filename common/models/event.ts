@@ -53,43 +53,54 @@ export = function(Event:any) {
 			}		
 			ctx.args.data.dtrSenderId = caller.id;		
 			ctx.args.data.dtrSenderName = caller.fullName;
-
-			app.models.Batch.upsertWithWhere(
-				{
-					dtrSenderId:ctx.args.data.dtrSenderId,
-					MachineNumber:ctx.args.data.MachineNumber,
-					BatchName:ctx.args.data.BatchName
-				},
-				{
-					dtrSenderId:ctx.args.data.dtrSenderId,
-					dtrSenderName:ctx.args.data.dtrSenderName,
-					companyId:ctx.args.data.companyId,
-					companyName:ctx.args.data.companyName,
-					MachineNumber:ctx.args.data.MachineNumber,
-					BatchName:ctx.args.data.BatchName,
-					MachineName:ctx.args.data.MachineName,
-					Loading:ctx.args.data.Loading,
-					Water_Vol1_Total:ctx.args.data.Water_Vol1_Total,
-					Water_Vol2_Total:ctx.args.data.Water_Vol2_Total,
-					Water_Vol3_Total:ctx.args.data.Water_Vol3_Total,
-					Water_Vol4_Total:ctx.args.data.Water_Vol4_Total,
-					Steam_Vol_Total:ctx.args.data.Steam_Vol_Total,
-					Power_Total:ctx.args.data.Power_Total,
-					completed:0,
-					updatedAt:new Date()
-				},
-				function(err:any){
-					if (err) return next(err);
-					app.models.Machine.upsertWithWhere(
-						{
-							dtrSenderId:ctx.args.data.dtrSenderId,
-							MachineNumber:ctx.args.data.MachineNumber
-						},
-						Object.assign({updatedAt:new Date()},ctx.args.data),						
-						next
-					);
-				}
-			);			
+			if (ctx.args.data.BatchName && ctx.args.data.BatchName.length>0){
+				app.models.Batch.upsertWithWhere(
+					{
+						dtrSenderId:ctx.args.data.dtrSenderId,
+						MachineNumber:ctx.args.data.MachineNumber,
+						BatchName:ctx.args.data.BatchName
+					},
+					{
+						dtrSenderId:ctx.args.data.dtrSenderId,
+						dtrSenderName:ctx.args.data.dtrSenderName,
+						companyId:ctx.args.data.companyId,
+						companyName:ctx.args.data.companyName,
+						MachineNumber:ctx.args.data.MachineNumber,
+						BatchName:ctx.args.data.BatchName,
+						MachineName:ctx.args.data.MachineName,
+						Loading:ctx.args.data.Loading,
+						Water_Vol1_Total:ctx.args.data.Water_Vol1_Total,
+						Water_Vol2_Total:ctx.args.data.Water_Vol2_Total,
+						Water_Vol3_Total:ctx.args.data.Water_Vol3_Total,
+						Water_Vol4_Total:ctx.args.data.Water_Vol4_Total,
+						Steam_Vol_Total:ctx.args.data.Steam_Vol_Total,
+						Power_Total:ctx.args.data.Power_Total,
+						completed:0,
+						updatedAt:new Date()
+					},
+					function(err:any){
+						if (err) return next(err);
+						app.models.Machine.upsertWithWhere(
+							{
+								dtrSenderId:ctx.args.data.dtrSenderId,
+								MachineNumber:ctx.args.data.MachineNumber
+							},
+							Object.assign({updatedAt:new Date()},ctx.args.data),						
+							next
+						);
+					}
+				);
+			}else{
+				app.models.Machine.upsertWithWhere(
+					{
+						dtrSenderId:ctx.args.data.dtrSenderId,
+						MachineNumber:ctx.args.data.MachineNumber
+					},
+					Object.assign({updatedAt:new Date()},ctx.args.data),						
+					next
+				);
+			}
+						
 		});		
 	  });
 
