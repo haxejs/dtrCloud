@@ -1,0 +1,1 @@
+NODE_ENV=production npm start 2>&1 >log.txt &
