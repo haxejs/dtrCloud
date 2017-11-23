@@ -40,7 +40,11 @@
       ]
     }
   },
-  "files": {},
+  "files": {
+    "serve-static": {
+      "params": "$!../client/www"
+    }
+  },
   "final": {
     "loopback#urlNotFound": {}
   },
