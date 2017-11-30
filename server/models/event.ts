@@ -1,5 +1,5 @@
 var app = require('../../server/server');
-import {ROLES} from '../../../shared/const';
+import {ROLES} from '../../common/const';
 
 
 export = function(Event:any) {

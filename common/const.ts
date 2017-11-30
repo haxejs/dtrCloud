@@ -1,0 +1,15 @@
+export var ROLES = {
+  SU:'su',
+  VIP:'vip',
+  ADMIN:'admin',
+  MONITOR:'monitor',
+  DTR:'dtr'
+}
+
+export var ALL_ROLES = [ROLES.ADMIN,ROLES.MONITOR,ROLES.SU,ROLES.VIP,ROLES.DTR];
+
+export var COMPANY_ROLES = [ROLES.ADMIN,ROLES.MONITOR,ROLES.DTR];
+
+export var GLOBAL_ROLES = [ROLES.SU,ROLES.VIP];
+
+export var NON_ADMIN_ROLES = [ROLES.MONITOR,ROLES.DTR,ROLES.VIP];

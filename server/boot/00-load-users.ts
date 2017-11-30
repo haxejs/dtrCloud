@@ -1,6 +1,6 @@
 import { BootScript } from '@mean-expert/boot-script';
 var log = require('debug')('boot:00-load-users');
-import {ROLES} from '../../../shared/const';
+import {ROLES} from '../../common/const';
 
 function createDefaultUsers(app: any) {
 

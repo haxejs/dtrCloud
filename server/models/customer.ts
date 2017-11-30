@@ -1,5 +1,5 @@
 var app = require('../../server/server');
-import {ROLES, ALL_ROLES, COMPANY_ROLES, GLOBAL_ROLES, NON_ADMIN_ROLES} from '../../../shared/const';
+import {ROLES, ALL_ROLES, COMPANY_ROLES, GLOBAL_ROLES, NON_ADMIN_ROLES} from '../../common/const';
 
 function validateSave(ctx:any,unused:any,next:Function){
   var user = ctx.args.data;
