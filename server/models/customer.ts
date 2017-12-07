@@ -52,6 +52,14 @@ function validateSave(ctx:any,unused:any,next:Function){
 export = function(Customer:any) {
   Customer.observe('after save',function(ctx:any,next:Function){
     var user = ctx.instance || ctx.data;
+    if (ctx.isNewInstance && user.roleName == ROLES.DTR){//dtr user is new created           
+      if (app.models.agendaJobs.dataSource.connector.settings.connector == 'mongodb'){
+        var job = app.agenda.create('heartBeatCheck', {userId: ctx.instance.id.toString()});
+        job.repeatEvery('1 minutes');
+        job.save();
+      }      
+    }
+
     if (user.roleName){
       if (GLOBAL_ROLES.indexOf(user.roleName)>-1 && user.companyId){
         user.companyId = null;
@@ -104,7 +112,7 @@ export = function(Customer:any) {
   });
 
   Customer.prototype.heartBeat = function(next:Function){
-    this.lastHeartBeat = new Date();
+    this.deadChecks = 0;//reset deadChecks
     this.save(next);
   };
 

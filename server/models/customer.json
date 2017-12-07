@@ -15,8 +15,9 @@
       "type": "string",
       "required": true
     },
-    "lastHeartBeat":{
-      "type": "Date",
+    "deadChecks":{
+      "type": "number",
+      "default": 0,
       "required": false
     }
   },

@@ -11,29 +11,14 @@ export = function(Machine:any) {
 				if (currentInstance){
 					//when batch is switched, then the batch is completed
 					if (currentInstance.BatchName && currentInstance.BatchName.length>0 && currentInstance.BatchName != ctx.data.BatchName){
-						await app.models.Batch.upsertWithWhere(
+						await app.models.Batch.updateAll(
 							{
 								dtrSenderId:currentInstance.dtrSenderId,
 								MachineNumber:currentInstance.MachineNumber,
 								BatchName:currentInstance.BatchName
 							},
 							{
-								dtrSenderId:currentInstance.dtrSenderId,
-								dtrSenderName:currentInstance.dtrSenderName,
-								companyId:currentInstance.companyId,
-								companyName:currentInstance.companyName,
-								MachineNumber:currentInstance.MachineNumber,
-								BatchName:currentInstance.BatchName,
-								MachineName:currentInstance.MachineName,
-								Loading:currentInstance.Loading,
-								Water_Vol1_Total:currentInstance.Water_Vol1_Total,
-								Water_Vol2_Total:currentInstance.Water_Vol2_Total,
-								Water_Vol3_Total:currentInstance.Water_Vol3_Total,
-								Water_Vol4_Total:currentInstance.Water_Vol4_Total,
-								Steam_Vol_Total:currentInstance.Steam_Vol_Total,
-								Power_Total:currentInstance.Power_Total,
-								completed:1,
-								updatedAt:new Date()
+								completed:1
 							}
 						);
 					}

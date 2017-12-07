@@ -60,6 +60,18 @@
     "dataSource": "transient",
     "public": false
   },
+  "agendaJobs": {
+    "dataSource": "db",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "find": true
+        }
+      }
+    }
+  },
   "Company": {
     "dataSource": "db",
     "public": true,
