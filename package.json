@@ -19,6 +19,7 @@
     "@mean-expert/model": "^1.0.9",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.47",
+    "@xialeistudio/baidu-push": "^1.0.3",
     "agenda": "^1.0.3",
     "agendash": "git+https://github.com/haxejs/agendash.git#kmshi",
     "chai": "^4.1.2",
