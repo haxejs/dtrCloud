@@ -2,6 +2,10 @@
   "restApiRoot": "/api",
   "host": "0.0.0.0",
   "port": 3000,
+  "baiduPush": {
+    "apiKey": "4wG6beKabtjrLwpWlUglnsHS",
+    "secretKey": "7YKAe2HixXgL0qauocpA1vokPGIAcXhQ"
+  },
   "remoting": {
     "context": false,
     "rest": {
