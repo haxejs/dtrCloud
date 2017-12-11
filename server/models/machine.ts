@@ -1,5 +1,5 @@
 var app = require('../../server/server');
-import {Push,DeviceType,MsgType,DeployStatus} from '@xialeistudio/baidu-push';
+import {Push,DeviceType,MsgType,DeployStatus} from '../../common/baiduPush';
 
 export = function(Machine:any) {
 	Machine.observe('before save', (ctx:any, next:Function) => {
